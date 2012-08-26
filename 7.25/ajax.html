@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+        $(function() {
+            $("button").click(function(){
+                var xmlHttp=null;
+                if(window.ActiveXObject){
+                    xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                else if(window.XMLHttpRequest){
+                    xmlHttp=new XMLHttpRequest();
+                }
+                if(xmlHttp!=null){
+                    xmlHttp.open("GET","helloajax.php",true);
+                    xmlHttp.onreadystatechange=RequestCallBack; //设置回调函数
+                    xmlHttp.send(null);  //因为使用get方式提交，所以可以使用null参调用
+                    function RequestCallBack(){//一旦readyState值改变，将会调用这个函数   
+                        if(xmlHttp.readyState == 4){   
+                            if(xmlHttp.status == 200){   
+                            //将xmlHttpReq.responseText的值赋给ID为 resText 的元素   
+                                //document.getElementById("resText").innerHTML = xmlHttp.responseText;
+                                $("#resText").html(xmlHttp.responseText);
+                            }   
+                        }   
+                    }   
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <button>Ajax提交</button>
+        <div id="resText"></div>
+    </body>
+</html>

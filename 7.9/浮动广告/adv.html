@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--(1) 广告层居右显示的位置可通过设置层的绝对定位方式来实现。
+(2) 层的z-index样式属性决定了层的显示顺序，注意z-index的数值越大，层的显示顺序越靠前。
+(3) 定义一个move()函数，用于计算滚动条距离页面顶端的距离，将这个距离设置为“广告层”距离页面顶端的距离，当滚动条上下移动的时候，调用move()函数，这样保证不论滚动条如何移动，广告层也会跟随滚动条同步移动。-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+		<script type="text/javascript">
+		function closeMe(){
+			document.getElementById("closeLayer").style.display="none";
+			document.getElementById("advLayer").style.display="none";
+		}
+		</script>
+	</head>
+	<body>
+		<center>
+			<DIV id="advLayer" style="position:fixed ;right:16px;top:0px;width:180px;height:230px;z-index:1;"> 
+<!--left:16px;元素的左边界位置 top:129px;元素的上边界位置--> 
+				<IMG src="images/hero.jpg" width="180" height="230">
+			</DIV> 
+			<DIV id="closeLayer" style="position:fixed;right:180px;top:0px;width:13px;height:230px;z-index:2;"  onClick="closeMe()">
+				<IMG src="images/close.jpg" width="13" height="13">
+			</DIV> 
+			<img src="images/bg1.jpg" width="1250" height="800">
+			<img src="images/bg2.jpg" width="1250" height="800">
+		</center>
+	</body>
+</html>

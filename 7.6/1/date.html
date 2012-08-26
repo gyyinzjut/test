@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--提示：
+(1) 创建一个空白页面，加入JavaScript脚本。
+(2) 使用Date对象创建一个实例，然后调用Date对象的set方法设置需要计算的事件。
+(3) 通过Date对象的get方法获得1月23号是一周的第几天。
+(4) 设置一个数组用于表示周一到周日。
+(5) 更加返回的某天的数值（0~6），与周日到周六进行对应匹配，然后输出是周几。
+注意在JavaScript中月份从0~11，星期中的每一天对应0~6，周日对应0，周一对应1，周二对应2，其他依次类推。
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">
+		function weekCal(){
+			var time=new Date();
+			time.setFullYear(2012);
+			time.setMonth(0);
+			time.setDate(23);
+			var week=time.getDay();
+			var weeknames=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+			document.write(weeknames[week]);
+		}
+		</script>
+	</head>
+	<body>
+		2012年春节日期是1月23日<script type="text/javascript">weekCal();</script>
+	</body>
+</html>

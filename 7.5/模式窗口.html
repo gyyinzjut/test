@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--提示：
+(1) 新建一个空白页面（“模式窗口.html”），在<B0DY>中加入onload事件。
+(2) 使用JavaScript自定义一个函数用于页面加载时调用。
+(3) 在函数中使用window对象的showModelDlalg()方法打开一个如图3所示的对话框。
+(4) 在“counter.html”页面中通过表单提交事件返回密码框的值。
+(5) 在“模式窗口.html”页面中定义一个变量获取账户信息页面的返回值，将返回值用于alert()方法显示到页面。
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>显示银行卡密码</title>
+		<script type="text/javascript">
+			function counter(){
+				window.showModalDialog("counter.html","窗口练习-网页对话框","toolbars=0, location=0, statusbars=0, menubars=0,width=700,height=550,scrollbars=1");
+			}
+		</script>
+	</head>
+	<body onLoad="counter()">
+
+	</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+        $(function() {
+        	$("#submit").click(function(){
+	        	$.get("get.php",$("#form1").serialize(), function (data, textStatus){
+	        		alert(data);
+	        		$("#resText").html(data);
+	        	});
+        	});
+        });
+        </script>
+	</head>
+	<body>
+		<div>
+			<form id="form1" action="#">
+			<ul>
+				<li class="li_left">公司名称</li>
+				<li>
+					<input type="text" name="CompanyName" value=""/>
+				</li>
+				<li class="li_left">用户名</li>
+				<li>
+					<input type="text" name="UserName" value="" />
+				</li>
+				<li class="li_left">公司类型</li>
+				<li>
+					<input type="text" name="CompanyCategory" value=""/>
+				</li>
+				<li class="li_left">公司主营</li>
+				<li>
+					<input type="text" name="CompanyOperation" value=""/>
+				</li>	
+				<li class="li_right" id="TelephoneErr"></li>
+				<li class="li_left">固定电话<font color='red'>*</font></li>
+				<li>
+					<input type="text" name="Telephone" id="Telephone"/>
+				</li>
+				<li class="li_right" id="MobileErr"></li>	
+				<li class="li_left">移动电话<font color='red'>*</font></li>
+				<li>
+					<input type="text" name="Mobile" id="Mobile"/>
+				</li>
+				<li class="li_right" id="AddressErr"></li>	
+				<li class="li_left">地址<font color='red'>*</font></li>
+				<li>
+					<input type="text" name="Address" id="Address"/>
+				</li>
+				<li class="li_right" id="ContactErr"></li>	
+				<li class="li_left">联系人<font color='red'>*</font></li>
+				<li>
+					<input type="text" name="Contact" id="Contact"/>
+				</li>
+				<li class="li_right" id="QQErr"></li>	
+				<li class="li_left">QQ<font color='red'>*</font></li>
+				<li>
+					<input type="text" name="QQ" id="QQ"/>
+				</li>
+				<li class="li_right" id="EmailErr"></li>	
+				<li class="li_left">邮箱<font color='red'>*</font></li>
+				<li>
+					<input type="text" name="Email" id="Email"/>
+				</li>
+			</ul>
+			<input type="submit" id="submit" value="提交" />
+		</form>
+		<div id="resText"></div>
+		</div>
+	</body>
+</html>

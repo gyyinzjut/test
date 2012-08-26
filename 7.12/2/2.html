@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+        table{
+            border-collapse:collapse;
+            border-spacing: 0px;
+            margin:auto;
+        }
+        </style>
+        <script type="text/javascript">
+        function initImg(){
+            document.getElementById("job2").style.display="none";
+            document.getElementById("resum1").style.display="none";
+            document.getElementById("resum").style.display="none";
+        }
+        function changeTag(show,hidden){
+            document.getElementById(show+"2").style.display="none";
+            document.getElementById(hidden+"1").style.display="none";
+            document.getElementById(hidden).style.display="none";
+            document.getElementById(hidden+"2").style.display="block";
+            document.getElementById(show+"1").style.display="block";
+            document.getElementById(show).style.display="block";
+        }
+        </script>
+	</head>
+	<body onLoad="initImg()">
+        <table width="250" height="276">
+            <tr>
+                <td width="39">
+                    <img id="job1" src="images/job1.jpg" width="39" height="63" />
+                    <img id="job2" src="images/job2.jpg" width="39" height="63" onClick="changeTag('job','resum')"/>
+                    <img id="resum2" src="images/resum2.jpg" width="39" height="67" onClick="changeTag('resum','job')" />
+                    <img id="resum1" src="images/resum1.jpg" width="39" height="67" />
+                </td>
+                <td width="197">
+                    <img id="job" src="images/jobtab.jpg" width="197" height="130" />
+                    <img id="resum" src="images/resumtab.jpg" width="197" height="130" />
+                </td>
+            </tr>
+        </table>
+	</body>
+</html>

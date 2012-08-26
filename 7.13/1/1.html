@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+        div{
+        	margin: auto;
+        	text-align: center;
+        }
+        li{
+        	list-style-type: none;
+        }
+        button{
+        	background-image: url(images/submit.gif);
+        	border: 0px;
+        	width: 99px;
+			height:25px;
+        }
+        span{
+        	font-size: 70%;
+        }
+        p{
+        	margin: auto;
+        }
+        .li_left{
+			float:left;
+			width: 150px;
+			text-align: right;
+		}
+		.center{
+			text-align: left;
+		}
+		.li_right{
+			right:50px;
+		}
+        .signup{
+        	border: 0px;
+        	width: 670px;
+        	background-color: #D5DAEE;
+        }
+        </style>
+        <script type="text/javascript">
+        function check(){
+        	var cemail=document.getElementById("email").value;
+        	var cpwd1=document.getElementById("pwd1").value;
+        	var cpwd2=document.getElementById("pwd2").value;
+        	var ccheckbox=document.getElementById("agree");
+        	if(cemail.length==0){
+        		alert("请输入email！");
+        		return false;
+        	}
+        	if (cemail.indexOf("@",0)==-1) {
+        		alert("必须包含@！");
+        		return false;
+        	}
+        	if(cemail.indexOf(".",0)==-1){
+        		alert("必须包含.！");
+        		return false;
+        	}
+        	if(cpwd1.length<6){
+        		alert("密码太短！");
+        		return false;
+        	}
+        	if(cpwd1!=cpwd2){
+        		alert("两次输入不同！");
+        		return false;
+        	}
+        	if(!ccheckbox.checked){
+        		alert("您不同意协议！");
+        		return false;
+        	}
+        	return true;
+        	}
+        </script>
+	</head>
+	<body>
+		<div>
+			<img src="images/Snap2.jpg" />
+		</div>
+		<div class="signup">
+			<img src="images/Snap4.jpg" />
+			<form onsubmit="return check();">
+			<ul>
+					<li class="li_left">
+						E-mail:
+					</li>
+					<li class="center">
+					    <input type="text" id="email" />
+						<span id="emailTip">请填写有效email地址</span>
+					</li>
+					<li class="li_left">
+						密码:
+					</li>
+					<li class="center">
+					    <input type="password" id="pwd1" />
+					    <span id="pwdTip">不小于6个字符，不区分大小写</span>
+					</li>
+					<li class="li_left">
+						重输密码:
+					</li>
+					<li class="center">
+					    <input type="password" id="pwd2" />
+					</li>
+				</ul>
+				<p><span>请查看并同意协议</span></p>
+				<input type="checkbox" id="agree" />
+				<span>不小于6个字符，不区分大小写</span>
+				<p><button></button></p>
+			</form>
+	</div>
+		<div>
+			<img src="images/Snap3.jpg" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+        div{
+            margin: 0 auto;
+            text-align: center;
+        }
+        .signup{
+            background-image: url(images/sign_up.gif);
+            width: 128px;
+            height: 38px;
+            border: 0px;
+        }
+        #right{
+            display: none;
+        }
+        </style>
+        <script type="text/javascript">
+        function showTip(){
+            document.getElementById("right").style.display="block";
+        }
+        function hideTip(){
+            document.getElementById("right").style.display="none";
+        }
+        </script>
+	</head>
+	<body>
+        <div>
+            <a href="javascript:showTip()">注册前请阅读会员权益和义务</a>
+        
+            <div id="right">
+                <a href="javascript:hideTip()">点击关闭</a>
+                <p><img src="images/right.jpg" /></p>
+            </div>
+            <p><button class="signup">
+            </button></p>
+        </div>
+	</body>
+</html>

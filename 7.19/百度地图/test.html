@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=true">
+</script>
+</head>
+<body>
+<!--欢迎来到站长特效网，我们网站收集大量高质量js特效，提供许多广告代码下载，网址：www.zzjs.net，zzjs@msn.com,用.net打造靓站-->
+<script type="text/javascript"></script>
+请刷新页面后看效果。
+<p>我要去<input id="search_wwwzzjsnet" type="text" value="北京" /><input type="button" value="GO" onclick="search()" /></p>
+<div style="width:980px;height:980px;border:1px solid gray;" id="container"></div>
+<script type="text/javascript">
+function $(id){
+  return document.getElementById(id);   //定义$
+}//欢迎来到站长特x效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+var map = new BMap.Map("container");    //创建地图
+map.centerAndZoom(new BMap.Point(116.330599, 39.95536), 10);      //初始化地图
+//欢迎来到站z长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+var city = new BMap.LocalSearch(map,{renderOptions:{map:map,autoViewport:true}});   //地图显示到查询结果处
+function search(){
+  var s = $("search_wwwzzjsnet").value;
+  city.search(s);   //查找城市
+}//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+</script>
+</body>
+</html>

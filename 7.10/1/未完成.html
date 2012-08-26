@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--(2) 获得层对象，通过层样式的display属性设置图片是显示还是隐藏。
+(3) 使用上一章学习过的setTimeout()函数周期性地调用实现多幅图片分时显示的函数。
+(4) 设置一个计数器负责循环显示第几张图片，注意：当显示最后一张图片时，要将计数器设置为1（对应第一幅图片），这样才能实现多幅图片循环显示的效果。-->
+		
+
+	</head>
+	<body>
+		<div id="div1" style="display:none;">1
+			<img src="images/1.jpg">
+		</div>
+		<div id="div2" style="display:none;">2
+			<img src="images/2.jpg">
+		</div>
+		<div id="div3" style="display:none;">3
+			<img src="images/3.jpg">
+		</div>
+		<div id="div4" style="display:none;">4
+			<img src="images/4.jpg">
+		</div>
+		<div id="div5" style="display:none;">5
+			<img src="images/5.jpg">
+		</div>
+		<div id="div6" style="display:none;">6
+			<img src="images/6.jpg">
+		</div>
+		<script type="text/javascript">
+		    var i = 1;
+		    var j = 0;
+			function test() {
+			    if(j != 0) {
+			        document.getElementById('div' + j).style.display = "none";//隐藏上一个
+			    }
+			    document.getElementById('div' + i).style.display = "block";//显示当前的
+			    j = i;
+			    if(i == 6) i = 1;
+			    else i = i + 1; 
+			}
+			window.setInterval("test()",1000);
+		</script>
+	</body>
+</html>

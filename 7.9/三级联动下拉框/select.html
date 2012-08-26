@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">
+		function changeContinent(){
+			var continent=document.getElementById("continents");  
+			var nationList=new Array();
+			nationList['亚洲']=['中国','日本','韩国'];
+			nationList['欧洲']=['英国','意大利','荷兰'];   
+       		var newOption1;
+       		var index1=continent.value;
+       		document.getElementById("nations").length=0;  
+       		document.getElementById("provinces").length=0;     
+      		for (var i in nationList[index1]){    
+	          newOption1=new Option(nationList[index1][i], nationList[index1][i]);     
+	          document.getElementById("nations").options.add(newOption1);    
+	       } 
+		}
+		function changeNation(){
+			var nation=document.getElementById("nations");  
+			var provinceList=new Array();
+			provinceList['中国']=['四川','浙江','西藏'];
+			provinceList['日本']=['大阪','银座','东京'];
+			provinceList['韩国']=['首尔','汉城','……'];
+			provinceList['英国']=['英国1','英国2','英国3'];   
+       		var newOption2;      
+       		var index2=nation.value;
+       		
+       		document.getElementById("provinces").length=0;    
+      		for (var j in provinceList[index2]){    
+	          newOption2=new Option(provinceList[index2][j], provinceList[index2][j]);     
+	          document.getElementById("provinces").options.add(newOption2);    
+	       } 
+		}
+
+		</script>
+	</head>
+	<body>
+		<form id="myForm">
+			<select id="continents" name="continents" onChange="changeContinent()">
+				<option value="defult">请选择大洲</option>
+				<option value="亚洲">亚洲</option>
+				<option value="欧洲">欧洲</option>
+			</select>
+			<select id="nations" name="nations" onChange="changeNation()">
+				<option value="defult">请选择国家</option>
+			</select>
+			<select id="provinces" name="provinces">
+				<option value="defult">请选择省份</option>
+			</select>
+		</form>
+	</body>
+</html>

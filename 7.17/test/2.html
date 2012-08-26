@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+        <style type="text/css">
+        </style>
+        <script type="text/javascript">
+        /*
+        function a(){
+        var p=document.getElementsByTagName('p');
+        for(var i=0;i<p.length;i++){
+        	p[i].onclick=function(){
+        		alert("hey!");
+        	}
+        }
+        var item=document.getElementById("tb");
+        var tbody=document.getElementsByTagName("tbody");
+        var trs=document.getElementsByTagName("tr");
+        for(var i=0;i<trs.length;i++){
+        	if(i%2==0){
+        		trs[i].style.backgroundColor="#888";
+        	}
+        }
+      	btn.onclick=function(){
+	      	var checkboxs=document.getElementsByName("check");
+	      	var boxnum=0;
+	      	for(var j=0;j<checkboxs.length;j++){
+	      		if(checkboxs[j].checked){
+	      			boxnum++;
+	      		}
+	      	}
+      		alert(boxnum);
+      	}
+    	}
+        window.onload=a;
+        */
+        jQuery(document).ready(function() {
+        	$("p").click(function(){
+        		alert("hey!");
+        	});
+        	$("tr:even").css("backgroundColor","red");
+        	$("#btn").click(function(){
+        		var text=$("input:checked").length;
+        		alert(text);
+        	});
+        });
+        
+        </script>
+	</head>
+	<body>
+		<p>测试1</p>  
+		<p>测试2</p>  
+		<table id="tb">  
+		    <tbody>  
+		        <tr><td>第一行</td><td>第一行</td></tr>  
+		        <tr><td>第二行</td><td>第二行</td></tr>  
+		        <tr><td>第三行</td><td>第三行</td></tr>  
+		        <tr><td>第四行</td><td>第四行</td></tr>  
+		        <tr><td>第五行</td><td>第五行</td></tr>  
+		        <tr><td>第六行</td><td>第六行</td></tr>  
+		    </tbody>  
+		</table>
+		<input type="checkbox" value="1" name="check" checked="checked"/>  
+		<input type="checkbox" value="2" name="check" />  
+		<input type="checkbox" value="3" name="check" checked="checked"/>  
+		<input type="button" value="你选中的个数" id="btn"/>
+	</body>
+</html>

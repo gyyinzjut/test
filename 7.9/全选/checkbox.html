@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--(1) 使用document对象的getElementsByName()方法获得一组复选框的集合，其前提条件是：页面上的多个复选框名称必须相同。
+(2) 根据获得复选框的个数，循环判断获得的每一个复选框的checked属性，从而实现页面中的复选框的全选或全不选的效果。-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript">
+		function checkEvent(){
+			var allCheckBox=document.getElementById("allCars");
+			if(allCheckBox.checked==true) checkAll();
+			else checkNone();	
+			function checkNone(){
+				allCheckBoxs=document.getElementsByName("cars");
+				for (var i=0;i<allCheckBoxes.length;i++) {
+					if(allCheckBoxes[i].type=="checkbox"){
+						allCheckBoxes[i].checked=false;
+					}
+				}
+			}
+			function checkAll(){
+				allCheckBoxes=document.getElementsByName("cars");
+				for(var i=0;i<allCheckBoxes.length;i++){
+					if(allCheckBoxes[i].type=="checkbox"){
+						allCheckBoxes[i].checked=true;
+					}
+				}
+			}
+
+
+		}
+		</script>
+	</head>
+	<body>
+		<center>
+		<table border="1">
+			<tr>
+				<th colspan="4"><strong>世界顶级跑车你认识几款？</strong></th>
+			</tr>
+			<tr>
+				<th colspan="4"><input type="checkbox" id="allCars" onClick="checkEvent()">我是超级车迷，全部都认识</th>
+			</tr>
+			<tr>
+				<th style="padding:20px;"><input type="checkbox" id="cars" name="cars" value="frali"/></th>
+				<th  style="padding:20px;"><img src="images/frali.jpg"></th>
+				<th style="padding:20px;"><input type="checkbox" id="cars" name="cars" value="skoda"/></th>
+				<th  style="padding:20px;"><img src="images/skoda.jpg"></th>
+			</tr>
+			<tr>
+				<th><input type="checkbox" id="cars" name="cars" value="binli"/></th>
+				<th><img src="images/binli.jpg"></th>
+				<th><input type="checkbox" id="cars" name="cars" value="lamborghini"/></th>
+				<th><img src="images/lamborghini.jpg"></th>
+			</tr>
+			<tr>
+				<th><input type="checkbox" id="cars" name="cars" value="porsche"/></th>
+				<th><img src="images/porsche.jpg"></th>
+				<th><input type="checkbox" id="cars" name="cars" value="alefromeo"/></th>
+				<th><img src="images/alefromeo.jpg"></th>
+			</tr>
+		</table>
+		</center>
+	</body>
+</html>

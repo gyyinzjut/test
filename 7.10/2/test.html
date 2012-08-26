@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+<title>二级菜单的制作</title>
+<SCRIPT lanuage="Javascript">
+var tt='start';
+var ii='start';
+function tabledisplay(ss,bb) {
+if (ss.style.display=="none") {
+    if(tt!='start') tt.style.display="none"; //如果在双引号" "中加入none，效果就会改变，不妨试试看。
+    if(ii!='start') ii.src="";
+    ss.style.display="";
+    tt=ss;
+    ii=bb;
+    bb.src="";
+}
+else {
+    ss.style.display="none"; 
+    bb.src="";
+}
+}
+</SCRIPT>
+</head>
+<body>
+<table width="150" border="1" bordercolorlight="#ffffff" bordercolordark="#ffffff" cellpadding="0" cellspacing="0">
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >
+    <td align="left" id="tag0" style='CURSOR: hand' onclick=tabledisplay(Content0,tag0); language=JScript >++界面管理</td>
+</tr>
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >
+    <td align="left" id="Content0" style="display:none">
+<table width="100" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="30">|--</td>
+        <td width="70"><a href="navigation.asp" target="diaplayright">导航栏目</a></td>
+      </tr>
+      <tr>
+        <td>|--</td>
+        <td><a href="copyright.asp" target="diaplayright">版权信息</a></td>
+      </tr>
+    </table></td>
+</tr>
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >
+    <td align="left" id="tag1" style='CURSOR: hand' onclick=tabledisplay(Content1,tag1); language=JScript >++图书管理</td>
+</tr>
+
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >
+    <td id=Content1 style="display:none" valign="top" align="left">
+<table width="99" cellspacing="0" cellpadding="0" >
+      <tr>
+        <td width="39">|--</td>
+        <td width="86"><a href="book_add.asp" target="diaplayright">添加图书</a></td>
+      </tr>
+      <tr>
+        <td>|--</td>
+        <td><a href="book_select.asp" target="diaplayright">修改图书</a></td>
+      </tr>
+      <tr>
+        <td>|--</td>
+        <td><a href="type_add.asp" target="diaplayright">添加分类</a></td>
+      </tr>
+      <tr>
+        <td>|--</td>
+        <td><a href="type_modify.asp" target="diaplayright">修改分类</a></td>
+      </tr>
+    </table></td>
+</tr>
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee">
+    <td align="left" id=tag2 style='CURSOR: hand' onclick=tabledisplay(Content2,tag2); language=JScript>++用户管理</td>
+</tr>
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >
+    <td id=Content2 style="display:none" align=left valign="middle">
+<table width="95"   cellpadding="0" cellspacing="0" >
+      <tr>
+        <td>|--</td>
+        <td><a href="user_all.asp" target="diaplayright">显示用户</a></td>
+      </tr>
+      <tr>
+        <td>|--</td>
+        <td><a href="user_add.asp" target="diaplayright">添加用户</a></td>
+      </tr>
+      <tr>
+        <td>|--</td>
+        <td><a href="user_modify.asp" target="diaplayright">修改用户</a></td>
+      </tr>
+    </table></td>
+</tr>
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee" >
+    <td align="left" id=tag3 style="CURSOR: hand" onclick=tabledisplay(Content3,tag3); language=JScript>++系统信息</td>
+</tr>
+<tr bgcolor="#B7B7B7" bordercolorlight="#000000" bordercolordark="#eeeeee">
+    <td id=Content3 style="display:none">
+<table width="122"   cellpadding="0" cellspacing="0" >
+      <tr>
+        <td>|--</td>
+        <td><a href="window.asp" target="diaplayright">查看系统信息</a></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+</table> </td>
+</tr>
+</table>
+
+</body>
+</html>

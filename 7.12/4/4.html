@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+        li{
+            list-style-type: none;
+            text-align: right;
+        }
+        button{
+            background-image: url(images/login.gif);
+            margin-right: 45px;
+            width: 101px;
+            height: 22px;
+            border: 0px;
+        }
+        input{
+            width: 150px;
+            margin: 3px;
+        }
+        .back{
+            margin: 0 auto;
+            text-align: center;
+			border:0px;
+        }
+		#input{
+            position:relative;
+            margin-top:-250px; 
+            margin-right: 600px;
+		}
+        </style>
+        <script type="text/javascript">
+        function check(){
+            if(document.getElementById("username").value==""){
+                alert("请输入用户名！");
+                return false;
+            }
+            else{
+                if(!document.getElementById("username").value.match(/^[A-Za-z0-9]+$/)){
+                    alert("用户名由数字和字母组成！");
+                    return false;
+                }
+            }
+            if(document.getElementById("pwd").value.length==0){
+                alert("请输入密码！");
+                return false;
+            }
+            else{
+                if(document.getElementById("pwd").value.length<6){
+                    alert("密码不正确！");
+                    return false;
+                }
+            }
+            return true;
+        }
+        </script>
+    </head>
+    <body>
+        <div class="back"><img src="images/Snap1.jpg"/>
+            <div id="input">
+    			<form onsubmit="return check();">
+                    <ul>
+                        <li>
+                            用户名：
+            				<input type="text" name="username" id="username" />
+                        </li>
+                        <li>
+                            密码：
+                            <input type="password" name="pwd" id="pwd" />
+                        </li>
+                        <li>
+                            <button></button>
+                        </li>
+                    </ul>
+    			</form>
+            </div>
+		</div>
+    </body>
+</html>

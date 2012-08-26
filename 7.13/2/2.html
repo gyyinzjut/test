@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+提示：
+(1) 通过String对象的charAt()方法和length属性来判断输入的日期格式是否正确。
+(2) 使用String对象的方法split("分割的标识符")，来返回一个按照分割标志符拆分的数组，然后按照数组下标判断每个数组中的元素是否是数字，在判断数组中的元素是否是数字时可以使用IsNaN()方法。
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+        div{
+        	margin: auto;
+        	text-align: center;
+        }
+        .bold{
+        	font-size: 150%;
+        	font-weight: bold;
+        }
+        </style>
+        <script type="text/javascript">
+        function check(){
+        	var x;
+        	var date=document.getElementById("date").value;
+        	var dates=date.split("/");
+        	var flag=1;
+        	if(date.length!=10){
+        		alert("长度必须为10！");
+        		flag=0;
+        	}
+        	if(date.charAt(4)!="/"||date.charAt(7)!="/"){
+        		alert("第5位和第8位必须是/符号！");
+        		flag=0;
+        	}
+        	for(x in dates){
+        		if(isNaN(dates[x])){
+        			alert(dates[x]);
+        			flag=0;
+        		}
+        	}
+        	if(flag==1){
+        		alert("Bingo!");
+        	}
+        }
+        </script>
+	</head>
+	<body>
+		<div>
+			<p class="bold">格式输入验证</p>
+			<p>日期格式yyyy/mm/dd<input type="text" id="date" /></p>
+			<p><button onClick="check()">显示输入</button>
+		</div>
+	</body>
+</html>

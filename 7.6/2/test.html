@@ -1,0 +1,36 @@
+<HTML> 
+<HEAD> 
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<TITLE>浮动广告图片</TITLE> 
+<SCRIPT language="javascript"> 
+var advInitTop=0; 
+var closeInitTop=0;
+function inix( ) //获取广告图片所在的层上边距的初始值129 
+{ 
+    advInitTop=document.getElementById("advLayer").style.pixelTop; 
+    closeInitTop=document.getElementById("closeLayer").style.pixelTop;
+} 
+function move( ){ 
+    document.getElementById("advLayer").style.pixelTop=advInitTop+document.body.scrollTop;
+	document.getElementById("closeLayer").style.pixelTop=closeInitTop+document.body.scrollTop; //使层与滚动条同步移动 
+} 
+function closeMe(){
+	document.getElementById("advLayer").style.display="none";
+	document.getElementById("closeLayer").style.display="none";
+}
+window.onscroll=move ;  //窗口的滚动事件，当页面滚动时调用move( )函数 
+</SCRIPT> 
+</HEAD> 
+<BODY> 
+<DIV id="advLayer" style="position:absolute;left:16px;top:129px;width:180px;height:230px;z-index:1;"> 
+<!--left:16px;元素的左边界位置 top:129px;元素的上边界位置--> 
+	<IMG src="advpic.gif" width="180" height="230">
+</DIV> 
+<DIV id="closeLayer" style="position:absolute;left:180px;top:132px;width:13px;height:230px;z-index:2;"  onClick="closeMe()">
+	<IMG src="close.jpg" width="13" height="13">
+</DIV> 
+</DIV> 
+<IMG src="contentpic.jpg" width="993" height="1799">
+</DIV> 
+</BODY> 
+</HTML> 

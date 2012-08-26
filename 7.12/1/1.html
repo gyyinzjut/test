@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+		li{
+			list-style-type: none;
+			padding: 5px;
+		}
+		button{
+			width: 100px;
+			height: 23px;
+			display:inline-block;
+		}
+		font{
+			color:#00A8A8;
+		}
+		.onbutton{
+			background-image: url(images/freedl_1-2.jpg);
+		}
+		.overbutton{
+			
+			background-image: url(images/freedl_1-1.jpg);
+		}
+		.onborder{
+			border-width: 2px;
+			border-color: #00A8A8;
+			border-style:solid;
+		}
+		.overborder{
+			border-width: 1px;
+			border-color: #CECECE;
+			border-style:solid;
+		}
+		.li_left{
+			list-style-type: none;
+			float:left;
+			text-align: right;
+			width: 50px;
+		}
+		.back{
+			background-color: #F8F8F8;
+			width: 290px;
+			margin:0 auto;
+			text-align: center;
+		}
+		.check{
+			margin:0 auto;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="back">
+			<img src="images/freeh1-n.jpg"/>
+			<form>
+				<ul>
+					<li class="li_left">
+						<select name="please" id="please">
+							<option name="please" value="">邮箱名
+							</option>
+						</select>
+					</li>
+					<li>
+						<input class="overborder" type="text" name="email" id="email"  onMouseOver="this.className='onborder'" onMouseOut="this.className='overborder'">
+					</li>
+					<li class="li_left">
+						密码
+					</li>
+					<li>
+						<input class="overborder" type="password" name="pwd" id="pwd" onMouseOver="this.className='onborder'" onMouseOut="this.className='overborder'"/>
+					</li>
+					<li class="check">
+						<input type="checkbox" name="checkemail" id="checkemail"/><span>记住邮箱名</span>
+					</li>
+				</ul>
+				<button class="overbutton" name="signin" id="signin"  onMouseOver="this.className='onbutton'" onMouseOut="this.className='overbutton'"><font>登陆</font></button>
+			</form>
+		</div>
+	</body>
+</html>

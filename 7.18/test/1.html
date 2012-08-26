@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+        <style type="text/css">
+        ul{
+        	box-shadow: 0px 0px 4px 4px #bbb;
+        }
+        </style>
+        <script type="text/javascript">
+        $(function() {
+			var $li_1=$("<li title='香蕉'>香蕉</li>");
+			var $li_2=$("<li title='雪梨'>雪梨</li>");
+			var $parent=$("ul");
+			$parent.append($li_1);
+			$parent.append($li_2);
+        });
+        </script>
+	</head>
+	<body>
+		<p title="选择你最喜欢的水果." >你最喜欢的水果是?</p>  
+	    <ul>  
+	      <li title='苹果'>苹果</li>  
+	      <li title='橘子'>橘子</li>  
+	      <li title='菠萝'>菠萝</li>  
+	    </ul>
+	</body>
+</html>
