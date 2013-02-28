@@ -1,0 +1,208 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="utf-8"/>  
+        <title>Grayscale Windowing Test</title>  
+        <style type="text/css">     
+          table {margin:auto;}  
+     </style>  
+    </head>  
+    <body>  
+        <table>  
+            <tr align="center"><td><h3>Grayscale Image Test</h3><hr height="1px"/></td>  
+          </tr>  
+            <tr>  
+                <td align="right">  
+                    WW(<span id="spanWW"></span>): <input id="rangeWW" type="range" min="0" max="4096" onchange="setWindow();"/>  
+                    WC(<span id="spanWC"></span>): <input id="rangeWC" type="range" min="0" max="4096" onchange="setWindow();"/>  
+                    <button id="resetImage" onclick="loadImage();return true;">Reset</button>  
+                </td>  
+            </tr>  
+            <tr align="center">  
+                <td><canvas id="imageviewer" width="512px" height="512px" style="border: 1px solid;" mce_style="border: 1px solid;" /></td>  
+            </tr>  
+            <tr align="center"><td>© May, 2011, lifegame@263.net</td>  
+            </tr>  
+        </table>  
+    </body>  
+    <script>  
+        var patternData = [];  
+        var patternWidth = 512;  
+        var patternHeight = 512;  
+        var patternMaxGray = 0x0FFF;  
+          
+        function getPatternData(x,y){  
+            return patternData[y*patternWidth+x];  
+        }  
+          
+        function setPatternData(x,y,v){  
+            patternData[y*patternWidth+x]=v;  
+        }  
+          
+        function initPatternData(){  
+            function fillRect(x,y,w,h,v){  
+                var maxX = x+w;  
+                var maxY = y+h;  
+                for(i=x;i<maxX;i++){  
+                    for(j=y;j<maxY;j++){  
+                        setPatternData(i,j,v);  
+                    }  
+                }  
+            }  
+            function fillGradientRect(x,y,w,h,f,t){  
+                var maxX = x+w;  
+                var maxY = y+h;  
+                for(i=x;i<maxX;i++){  
+                    var v = f+Math.round((t-f)*(i-x)/w);  
+                    for(j=y;j<maxY;j++){  
+                        setPatternData(i,j,v);  
+                    }  
+                }  
+            }  
+            function fillGrid(c,r,v){  
+                var x = c*128;  
+                var y = r*128;  
+                fillRect(x,y,128,128,v);  
+            }  
+            function fillGradientGrid(c,r,f,t){  
+                var x = c*128;  
+                var y = r*128;  
+                fillGradientRect(x,y,128,128,f,t);  
+            }  
+            function drawLines(x,y,w,h,d){  
+                var v;  
+                var maxX = x+w;  
+                var maxY = y+h;  
+                if(d==1){  
+                for(i=x;i<maxX;i++){  
+                        v = ((i%2)==0)? 0 : patternMaxGray;  
+                        for(j=y;j<maxY;j++){  
+                            setPatternData(i,j,v);  
+                        }  
+                    }  
+                }  
+                else{  
+                    for(i=y;i<maxY;i++){  
+                        v = ((i%2)==0)? 0 : patternMaxGray;  
+                        for(j=x;j<maxX;j++){  
+                            setPatternData(j,i,v);  
+                        }  
+                    }  
+                }  
+            }  
+            function fillLineGrid(c,r){  
+                var x = c*128;  
+                var y = r*128;  
+                drawLines(x,y,64,128,1);  
+                drawLines(x+64,y,64,128,0);  
+            }  
+            fillGrid(0,0,0);  
+            fillRect(32,32,64,64,patternMaxGray*0.05);  
+            fillGrid(1,0,patternMaxGray*0.1);  
+            fillGrid(2,0,patternMaxGray*0.2);  
+            fillGrid(3,0,patternMaxGray*0.3);  
+            fillGrid(0,1,patternMaxGray*0.4);  
+            fillGrid(1,1,patternMaxGray*0.5);  
+            fillGrid(2,1,patternMaxGray*0.6);  
+            fillGrid(3,1,patternMaxGray*0.7);  
+            fillGrid(0,2,patternMaxGray*0.8);  
+            fillGrid(1,2,patternMaxGray*0.9);  
+            fillGrid(2,2,patternMaxGray);  
+            fillRect(256+32,256+32,64,64,patternMaxGray*0.95);  
+            fillLineGrid(3,2);  
+          fillGradientGrid(0,3,0,patternMaxGray/4);  
+            fillGradientGrid(1,3,patternMaxGray/4,patternMaxGray*2/4);  
+            fillGradientGrid(2,3,patternMaxGray*2/4,patternMaxGray*3/4);  
+            fillGradientGrid(3,3,patternMaxGray*3/4,patternMaxGray);  
+        }  
+    </script>  
+    <script>  
+        var icanvas = document.getElementById('imageviewer');  
+        var icanvasWidth = parseInt(icanvas.getAttribute("width"));   
+        var icanvasHeight = parseInt(icanvas.getAttribute("height"));   
+        var icontext = icanvas.getContext('2d');  
+        var isWindowing = 0;  
+        var beginPointX = 0;  
+        var beginPointY = 0;  
+        var wwStep = 5;  
+        var wcStep = 5;  
+          
+        function loadImage(){  
+            icanvas.onmousedown = function(e){  
+                isWindowing = 1;  
+                if(e.offsetX) {  
+                    beginPointX = e.offsetX;  
+                    beginPointY = e.offsetY;  
+            }  
+            else if(e.layerX) {  
+                beginPointX = e.layerX;  
+              beginPointY = e.layerY;  
+            }  
+            }  
+            icanvas.onmouseup = function(e){  
+                isWindowing = 0;  
+                if(e.offsetX) {  
+                    x = e.offsetX;  
+                    y = e.offsetY;  
+            }  
+            else if(e.layerX) {  
+                x = e.layerX;  
+              y = e.layerY;  
+            }  
+            var ww = parseInt(rangeWW.value);  
+                var wc = parseInt(rangeWC.value);  
+                ww = ww+(x-beginPointX)*wwStep;  
+                wc = wc+(y-beginPointY)*wcStep;  
+                updateWindow(ww,wc);  
+          }  
+          function updateWindow(ww,wc){  
+                loadPattern(ww,wc);  
+                rangeWW.value = ww;  
+                rangeWC.value = wc;  
+                spanWW.innerHTML = ww;  
+                spanWC.innerHTML = wc;  
+          }  
+            initPatternData();  
+            updateWindow(4096,2048);  
+        }  
+  
+        function loadPattern(ww,wc){  
+            function setPoint(img,x,y,pv){  
+                var i = (y*img.width+x)*4;  
+                img.data[i]=img.data[i+1]=img.data[i+2]=pv;  
+                img.data[i+3]=255;  
+            }  
+            function getPresentationValue(v,w,c){  
+                var minv = c-Math.round(w/2);  
+                if(v<minv) return 0;  
+                var maxv = c+Math.round(w/2);  
+                if(v>maxv) return 255;  
+                var pv = Math.round(255*(v-minv)/w);  
+                if(pv<0) return 0;  
+                if(pv>255) return 255;  
+                return pv;  
+            }  
+            var imgData = icontext.getImageData(0,0,icanvasWidth,icanvasHeight);  
+            for(y=0;y<patternHeight;y++){  
+                if(y>=imgData.height) break;  
+                for(x=0;x<patternWidth;x++){  
+                    if(x>=imgData.width) break;  
+                    var v = getPatternData(x,y);  
+                    var pv = getPresentationValue(v,ww,wc);  
+                    setPoint(imgData,x,y,pv);  
+                }  
+            }  
+            icontext.putImageData(imgData,0,0);  
+        }  
+          
+        function setWindow(){  
+            var ww = parseInt(rangeWW.value);  
+            var wc = parseInt(rangeWC.value);  
+            loadPattern(ww,wc);  
+            spanWW.innerHTML = ww;  
+            spanWC.innerHTML = wc;  
+        }  
+                  
+        window.addEventListener("load", loadImage(), true);   
+</script>  
+<html> 
