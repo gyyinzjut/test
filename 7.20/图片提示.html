@@ -26,15 +26,7 @@ li{
     border:1px solid #AAAAAA;   
 }   
   
-/* tooltip */   
-#tooltip{   
-    position:absolute;   
-    border:1px solid #ccc;   
-    background:#333;   
-    padding:2px;   
-    display:none;   
-    color:#fff;   
-}
+/* tooltip */
         </style>
         <script type="text/javascript">
         /*window.onload=function(){
@@ -57,28 +49,29 @@ document.body.appendChild(div);
 var tooltip=document.getElementById("tooltip");
 for(var i=0;i<demo.length;i++){
     var tool=demo[i];
-    tool.onmouseover=function(){
-        this.myTitle=this.title;
-        this.title="";
-        var imgTitle =this.myTitle?"<br/>" + this.myTitle:"";
-        tooltip.innerHTML="<img src='"+this.href+"'alt='产品预览图' />"+imgTitle;
-        if(tooltip){
-            tooltip.style.display="block";
-            tooltip.style.top  = document.body.scrollTop + event.clientY + 10 + "px";
-            tooltip.style.left = document.body.scrollLeft + event.clientX + 10 + "px";
+    tool.onmouseover = function () {
+        this.myTitle = this.title;
+        this.title = "";
+        var imgTitle = this.myTitle ? "<br/>" + this.myTitle : "";
+        div.innerHTML = "<img src='" + this.href + "'alt='产品预览图' />" + imgTitle;
+        if (div) {
+            div.style.position="absolute";
+            div.style.display="block";
+            div.style.top = document.body.scrollTop + event.clientY + 10 + "px";
+            div.style.left = document.body.scrollLeft + event.clientX + 10 + "px";
 
         }
-    }
-    tool.onmouseout=function(){
-        this.title=this.myTitle;
-        div.innerHTML="";
-        document.getElementById("tooltip").style.display="none";
-    }
-    tool.onmousemove=function(){
-        if(tooltip){
-            tooltip.style.display="block";
-            tooltip.style.top  = document.body.scrollTop + event.clientY + 10 + "px";
-            tooltip.style.left = document.body.scrollLeft + event.clientX + 10 + "px";
+    };
+    tool.onmouseout = function () {
+        this.title = this.myTitle;
+        div.innerHTML = "";
+        div.style.display = "none";
+    };
+    tool.onmousemove=function(event){
+        if(div){
+            div.style.position="absolute";
+            div.style.top  = document.body.scrollTop + event.clientY + 10 + "px";
+            div.style.left = document.body.scrollLeft + event.clientX + 10 + "px";
 
         }
     }
